@@ -1,0 +1,99 @@
+/* Ensure content isn't hidden behind the fixed navbar */
+body { padding-top: 70px; }
+section { padding: 60px 0; }
+
+
+/* Fallback hamburger icon in case bootstrap.css doesn't provide one */
+.navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* White fallback icon for dark navbar */
+/* (removed dark-navbar toggler fallback) */
+
+/* Black bottom border for the navbar */
+.navbar {
+	border-bottom: 2px solid #000;
+}
+
+/* Hide burger and nav items on small screens per user request */
+@media (max-width: 991.98px) {
+	.navbar-toggler { display: none !important; }
+	.navbar-collapse { display: none !important; }
+}
+
+/* Color the hero name differently */
+.hero-name {
+    color: #ffcc00; /* sample color (gold). Change as needed */
+}
+body {
+  padding-top: 0;
+}
+
+/* Social icons row styling */
+.social-icons { margin-top: 8px; }
+.social-icons .social-link { display: inline-block; color: inherit; margin: 0 12px; opacity: 0.95; }
+.social-icons .social-link svg { vertical-align: middle; display: inline-block; }
+.social-icons .social-link:hover { opacity: 1; transform: translateY(-2px); }
+
+@media (max-width: 576px) {
+	.social-icons .social-link { margin: 0 8px; }
+	.social-icons .social-link svg { width: 18px; height: 18px; }
+}
+
+/* Services use Bootstrap card classes now - custom styles removed */
+
+/* Hover effect for service cards (minor blur + lift) */
+.container-fluid.bg-dark .card {
+	transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+.container-fluid.bg-dark .card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 18px 36px rgba(0,0,0,0.14);
+	filter: blur(0.4px);
+}
+/* Code for contact me section */
+
+
+
+/* Contact section styles */
+.contact-info .contact-icon{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0b1220; /* dark tile behind icon */
+  border-radius:8px;
+  color:#f1b70a; /* yellow accent */
+  flex-shrink:0;
+}
+.contact-info .list-group-item { padding: 0; }
+.contact-info h5 { font-weight:700; margin-bottom:4px; }
+.contact-info p { margin:0; color: #9ca3af; }
+
+/* form controls on dark bg */
+.form-control.bg-dark {
+  background-color: #0f1720 !important;
+  border-radius:8px;
+  border-color: rgba(255,255,255,0.08) !important;
+  color: #e6eef8;
+}
+.form-control::placeholder { color: #9ca3af; opacity:1; }
+
+/* send button */
+.contact-btn {
+  background:#f1b70a;
+  color:#111;
+  border-radius:10px;
+  padding:12px 36px;
+  box-shadow: 0 8px 20px rgba(241,183,10,0.12);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.contact-btn:hover { transform: translateY(-3px); filter:brightness(.96); }
+
+/* responsive tweaks */
+@media (max-width:767.98px){
+  .contact-btn { width:100%; }
+  .contact-info { margin-bottom: 1.5rem; }
+}

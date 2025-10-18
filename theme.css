@@ -1,0 +1,212 @@
+
+/* Light green color scheme */
+:root{
+  --bg: #f3fff6;
+  --bg-2: #e9fff0;
+  --card-bg: #ffffff;
+  --accent: #22c55e;       /* lime/green */
+  --accent-dark: #16a34a;
+  --text: #07251f;
+  --muted: #4b5563;
+  --tile: #e6fff0;
+}
+
+/* Page background */
+body{
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--text);
+}
+
+/* Navbar: light green background and subtle bottom border */
+.navbar, .navbar-light.bg-light {
+  background-color: var(--bg-2) !important;
+  border-bottom: 2px solid rgba(22,163,74,0.12) !important;
+}
+.navbar .navbar-brand, .navbar .nav-link {
+  color: var(--text) !important;
+}
+.navbar .nav-link:hover, .navbar .nav-link:focus, .navbar .nav-link.active {
+  color: var(--accent-dark) !important;
+}
+
+/* Override dark sections to match light-green scheme while keeping readable text */
+.container-fluid.bg-dark {
+  background: linear-gradient(180deg, #f8fffb 0%, #f0fff5 100%) !important;
+  color: var(--text) !important;
+}
+.container-fluid.bg-dark .text-white {
+  color: var(--text) !important;
+}
+.container-fluid.bg-dark .text-muted {
+  color: #5f6b63 !important;
+}
+
+/* Cards (services, others) */
+.card {
+  background: var(--card-bg) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 20px rgba(6,95,70,0.06) !important;
+  color: var(--text) !important;
+}
+.card .card-title { color: var(--text) !important; }
+.card .card-text { color: var(--muted) !important; }
+
+/* Social icons */
+.social-link svg { fill: var(--accent-dark); color: var(--accent-dark); }
+.social-link { margin: 0 10px; }
+
+/* Contact section */
+.contact-info .contact-icon{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: var(--tile) !important;
+  border-radius:8px;
+  color: var(--accent-dark) !important;
+  flex-shrink:0;
+}
+.contact-info h5 { font-weight:700; color: var(--text); margin-bottom:4px; }
+.contact-info p { margin:0; color: #5f6b63; }
+
+/* Form controls on light-green background */
+.form-control.bg-dark {
+  background-color: #f6fff9 !important;
+  border-radius:8px;
+  border-color: rgba(6,95,70,0.08) !important;
+  color: var(--text) !important;
+}
+.form-control.bg-dark::placeholder { color: #7a8b84 !important; opacity:1; }
+
+/* Send button */
+.contact-btn {
+  background: var(--accent) !important;
+  color: #042118 !important;
+  border-radius:10px;
+  padding:12px 36px;
+  box-shadow: 0 8px 20px rgba(34,197,94,0.12);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.contact-btn:hover { transform: translateY(-3px); background: var(--accent-dark) !important; }
+
+/* Hero name accent */
+.hero-name { color: var(--accent-dark) !important; }
+
+/* Progress bars: use accent */
+.progress-bar.bg-warning {
+  background-color: var(--accent) !important;
+}
+
+/* Utility: ensure text meant to be white on dark sections is readable after the color-swap */
+.text-white-on-dark { color: var(--text) !important; }
+
+/* Small responsive tweaks */
+@media (max-width:767.98px){
+  .contact-btn { width:100%; }
+  .contact-info { margin-bottom: 1.5rem; }
+  .social-link { margin: 0 8px; }
+}
+
+
+
+
+
+
+
+/* I write this whole block to seprate this previous code from animatio code */
+
+
+
+
+/* Animations & transitions ------------------------------------------------- */
+:root{
+  --anim-duration: .45s;
+  --anim-fast: .18s;
+  --anim-ease: cubic-bezier(.2,.9,.2,1);
+}
+
+/* Respect user's preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Gentle site-wide transitions (apply to interactive elements only) */
+a, .nav-link {
+  transition: color .22s var(--anim-ease);
+}
+.btn, .contact-btn {
+  transition: transform var(--anim-fast) var(--anim-ease), box-shadow var(--anim-fast) var(--anim-ease);
+}
+
+/* Card hover (subtle lift + shadow) */
+.card {
+  transition: transform var(--anim-duration) var(--anim-ease), box-shadow var(--anim-duration) var(--anim-ease), filter var(--anim-duration) var(--anim-ease);
+  will-change: transform, box-shadow;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(6,95,70,0.08);
+  filter: blur(0.2px);
+}
+
+/* Icon micro-interaction */
+.contact-icon svg,
+.service-icon svg,
+.social-link svg {
+  transition: transform .25s var(--anim-ease), fill .25s var(--anim-ease), opacity .25s var(--anim-ease);
+  will-change: transform;
+}
+.card:hover .contact-icon svg,
+.card:hover .service-icon svg,
+.social-link:hover svg {
+  transform: translateY(-3px) scale(1.06);
+  opacity: 0.98;
+}
+
+/* Progress bars animate width smoothly */
+.progress .progress-bar {
+  transition: width 1s cubic-bezier(.23,.9,.33,1);
+}
+
+/* Fade-up animation for sections/elements on load */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp var(--anim-duration) var(--anim-ease) both;
+}
+
+/* Reveal container: stagger children (supports up to 6 children) */
+.reveal > * {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp var(--anim-duration) var(--anim-ease) both;
+}
+.reveal > *:nth-child(1){ animation-delay: 0.06s; }
+.reveal > *:nth-child(2){ animation-delay: 0.12s; }
+.reveal > *:nth-child(3){ animation-delay: 0.18s; }
+.reveal > *:nth-child(4){ animation-delay: 0.24s; }
+.reveal > *:nth-child(5){ animation-delay: 0.30s; }
+.reveal > *:nth-child(6){ animation-delay: 0.36s; }
+
+/* Utility: small hover lift for clickable cards/blocks */
+.clickable {
+  cursor: pointer;
+  transition: transform .18s var(--anim-ease), box-shadow .18s var(--anim-ease);
+}
+.clickable:hover { transform: translateY(-4px); }
+
+/* Light emphasis on headings when scrolled into view (helper class) */
+.headline-animate { opacity: 0; transform: translateY(6px); animation: fadeUp .5s var(--anim-ease) both; }
+
+/* Subtle focus outline for keyboard users */
+:focus {
+  outline: 3px solid rgba(34,197,94,0.14);
+  outline-offset: 2px;
+}
