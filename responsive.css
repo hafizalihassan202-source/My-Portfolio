@@ -1,0 +1,46 @@
+/* --- Responsive helpers / overrides --- */
+
+/* ensure navbar toggler visible when collapsed (override any earlier hide rules) */
+.navbar-toggler {
+  display: block !important;
+}
+
+/* ensure collapsed menu works (Bootstrap controls .collapse) */
+@media (max-width: 991.98px) {
+  .navbar-collapse.collapse {
+    display: none;
+  }
+  .navbar-collapse.collapse.show {
+    display: block;
+  }
+}
+
+/* responsive hero sizes */
+h1.display-5 { font-size: 2.1rem; }
+h2.display-6 { font-size: 1.6rem; }
+@media (min-width:768px) {
+  h1.display-5 { font-size: 3rem; }
+  h2.display-6 { font-size: 2rem; }
+}
+@media (min-width:1200px) {
+  h1.display-5 { font-size: 3.6rem; }
+  h2.display-6 { font-size: 2.4rem; }
+}
+
+/* center skills container and make progress full width */
+#skills + .container, .mx-auto[style] { max-width: 900px; margin-left: auto; margin-right: auto; }
+
+/* make contact form inputs full width on small screens already via Bootstrap,
+   but ensure consistent rounded inputs */
+.form-control.bg-dark {
+  border-radius: 8px;
+}
+
+/* small spacing adjustments for mobile */
+@media (max-width:767.98px) {
+  .hero-name { display:inline-block; }
+  .social-icons { gap: 12px; }
+  .card-body.d-flex { align-items: flex-start; }
+  .contact-info .contact-icon { width:44px; height:44px; }
+  .container { padding-left: 1rem; padding-right: 1rem; }
+}
