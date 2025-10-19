@@ -98,7 +98,7 @@ body {
   .contact-info { margin-bottom: 1.5rem; }
 }
 
-/* BAck on  Top button style */
+/* BAck on  Top button style  starts here*/
 
 /* Back-to-top button (bottom-left) */
 .back-to-top{
@@ -148,3 +148,4 @@ body {
 @media (max-width: 420px){
   .back-to-top { left: 12px; bottom: 12px; width:44px; height:44px; }
 }
+/* BAck on  Top button style  ends here*/
