@@ -100,10 +100,10 @@ body {
 
 /* BAck on  Top button style  starts here*/
 
-/* Back-to-top button (bottom-left) */
+/* Back-to-top button (bottom-right) */
 .back-to-top{
   position: fixed;
-  left: 18px;
+  right: 18px;
   bottom: 18px;
   width: 48px;
   height: 48px;
